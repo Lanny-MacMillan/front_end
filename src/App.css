@@ -1,11 +1,24 @@
 body {
   text-align: center;
 }
+#title {
+  font-family: snes;
+  font-size: 75px;
+  background: rgb(221, 125, 226);
+  margin-bottom: 15px;
+}
 .container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
+}
+#createDiv {
+  text-align: center;
+  background: rgb(140, 226, 125);
+  width: 350px;
+  border-radius: 35px;
+  margin-bottom: 15px;
 }
 #post-div {
   text-align: center;
@@ -17,8 +30,33 @@ body {
   border-bottom-left-radius: 35px;
   background: rgb(83, 187, 201);
 }
+
 /* I added this in case there is an IMG upload in the future */
 img {
   width: 100%;
-  max-width: 280px;
+  max-width: 200px;
+}
+/* =======================================*/
+.sidenav {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: rgb(88, 83, 83);
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
 }
