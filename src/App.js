@@ -11,9 +11,9 @@ function App() {
   const [tags, setTags] = useState('')
   const [posts, setAllPosts] = useState([])
 
-  const APIBaseURL = 'http://localhost:3000/'
+  // const APIBaseURL = 'http://localhost:3000/'
   // URL below isnt correct its just a placeholder
-  // const APIBaseURL = 'https://stormy-temple-25752.herokuapp.com/'
+  const APIBaseURL = 'https://stormy-temple-25752.herokuapp.com/'
 
   
   const handleNewBody = (event) => {
