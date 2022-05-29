@@ -12,8 +12,8 @@ function App() {
   const [posts, setAllPosts] = useState([])
 
   const APIBaseURL = 'http://localhost:3000/'
-  // URL below isnt correct its just a placeholder
-  // const APIBaseURL = 'https://stormy-temple-25752.herokuapp.com/'
+  // URL below is to our backend...
+  // const APIBaseURL = 'https://stark-crag-15310-backend.herokuapp.com/'
 
   
   const handleNewBody = (event) => {
@@ -89,19 +89,23 @@ function App() {
 
   return (
     <>
-    <div id='title'>Bottle App</div>
+    <div id='title'>
+      <img id='logo'src='https://i.imgur.com/jHIS9Lc.png'/>
+      
+    </div>
 
     <div className='container'>
-    <div id='createDiv'>
-      <h2>Message Here</h2>
-        <form onSubmit={handleFormSubmit}>
-          <input type='text' placeholder='Body' onChange={handleNewBody} required/><br/>
-          <input type='text' placeholder='Img' onChange={handleNewImg} required/><br/>
-          <input type='text' placeholder='Tag' onChange={handleNewTag} required/><br/>
-          <input type='submit' value='Create Post'/>
-        </form><br/>
+      <div id='createDiv'>
+      <img id='sideLogo' src='https://i.imgur.com/LUF3DVe.png?1'/>
+          <form onSubmit={handleFormSubmit}>
+            <input type='text' placeholder='Body' onChange={handleNewBody} required/><br/>
+            <input type='text' placeholder='Img' onChange={handleNewImg} required/><br/>
+            <input type='text' placeholder='Tag' onChange={handleNewTag} required/><br/>
+            <input type='submit' value='Create Post'/>
+          </form><br/>
+      </div>
     </div>
-    </div>
+
     <div className='container'>
     {posts.map((post)=> {
             return <Post 
@@ -117,24 +121,48 @@ function App() {
               key={posts._id}/>
           })}
     </div>
+
     <div class='sidenav'>
-      <ul>
-        <li>
-          <a href='https://cloud.mongodb.com/v2/6290d9dd104b8b4c06555ef8#metrics/replicaSet/6290da14a1cd8c01b39440e9/explorer/test/posts/find'
-          target="_blank">Atlas DB</a>
-        </li>
-        <li>
-          <a href='https://github.com/Lanny-MacMillan/front_end'
-          target="_blank">Git Front</a>
-        </li>
-        <li>
-          <a href='https://github.com/Lanny-MacMillan/back_end' 
-          target="_blank">Git Back</a>
-          </li>
-      </ul>
+
+
+    <div id='search'>
+      <form id="form"> 
+      <input type="search" id="query" name="q" placeholder="Search..."/>
+        <button>Search Tags</button>
+      </form>
+    </div>
+    <div id='info'>
+        <div id='projectTeam'>
+          <a href='x'>Contact Us</a>
+          <a href='x'>How to Use</a>
+          <a href='x'>About Us</a>
+          <br/>
+          <p>Project Team:<hr/></p>
+          <ul>
+            <li>
+              <a href='https://github.com/Lanny-MacMillan' target="_blank">Lanny</a>
+              <a href='https://github.com/kbrpronet' target="_blank">Kai</a>
+            </li>
+          <p>Dev Links:<hr/></p>
+            <li>
+              <a href='https://cloud.mongodb.com/v2/6290d9dd104b8b4c06555ef8#metrics/replicaSet/6290da14a1cd8c01b39440e9/explorer/test/posts/find'
+              target="_blank">Atlas DB</a>
+            </li>
+            <li>
+              <a href='https://github.com/Lanny-MacMillan/front_end'
+              target="_blank">Git Front</a>
+            </li>
+            <li>
+              <a href='https://github.com/Lanny-MacMillan/back_end' 
+              target="_blank">Git Back</a>
+              </li>
+          </ul>
+        </div>
+      </div>
     </div>
     </>
   );
 }
 
 export default App;
+

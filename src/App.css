@@ -30,14 +30,20 @@ body {
   border-bottom-left-radius: 35px;
   background: rgb(83, 187, 201);
 }
-
-/* I added this in case there is an IMG upload in the future */
+#logo {
+  /* width: 100%; */
+  max-width: 350px;
+}
 img {
   width: 100%;
   max-width: 200px;
 }
+ul {
+  padding: 0;
+}
 /* =======================================*/
 .sidenav {
+  display: flex;
   height: 100%;
   width: 160px;
   position: fixed;
@@ -47,16 +53,35 @@ img {
   background-color: rgb(88, 83, 83);
   overflow-x: hidden;
   padding-top: 20px;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#search {
+  align-self: flex-start;
+  
+}
+#projectTeam {
+  /* flex-direction: column; */
+  align-self: flex-end;
+  margin-bottom: 10px;
+  width: 100%;
+}
+#info {
+  display: flex;
+  margin-bottom: 10px;
+  width: 100%;
 }
 
 .sidenav a {
-  padding: 6px 8px 6px 16px;
+  padding: 5px 5px 5px 0px;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 15px;
   color: #818181;
   display: block;
 }
-
+li {
+  list-style: none;
+}
 .sidenav a:hover {
   color: #f1f1f1;
 }
