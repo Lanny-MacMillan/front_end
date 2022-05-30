@@ -1,8 +1,8 @@
 import './App.css';
 import {useEffect, useState} from 'react';
 import axios from 'axios';
-import Post from './components/Post'
-
+import Post from './components/Post';
+import Fuse from 'fuse.js';
 
 function App() {
 
@@ -10,12 +10,32 @@ function App() {
   const [img, setImg] = useState('')
   const [tags, setTags] = useState('')
   const [posts, setAllPosts] = useState([])
+  const [query, setQuery] = useState('')
 
   const APIBaseURL = 'http://localhost:3000/'
   // URL below is to our backend...
   // const APIBaseURL = 'https://stark-crag-15310-backend.herokuapp.com/'
 
-  
+  // ====================== SEARCH ===========================
+  const fuse = new Fuse(posts, {
+    keys: [
+      'body',
+      'tags',
+    ],
+    includeScore: true
+  })
+
+  const results = fuse.search(query);
+  const postsResults = query ? results.map(result => result.item): posts
+
+  function handleOnSearch({ currentTarget = {} }) {
+    const { value } = currentTarget;
+    setQuery(value)
+  }
+  // console.log('results', results)
+
+  // ==========================================================
+
   const handleNewBody = (event) => {
     setBody(event.target.value)
   }
@@ -107,7 +127,7 @@ function App() {
     </div>
 
     <div className='container'>
-    {posts.map((post)=> {
+    {postsResults.map((post)=> {
             return <Post 
             //    Props   =    Values
               removePost={removePost} 
@@ -127,8 +147,8 @@ function App() {
 
     <div id='search'>
       <form id="form"> 
-      <input type="search" id="query" name="q" placeholder="Search..."/>
-        <button>Search Tags</button>
+      <input type="search" value={query} onChange={handleOnSearch} id="query" name="q" placeholder="Search..."/>
+        <button>Search Posts</button>
       </form>
     </div>
     <div id='info'>
