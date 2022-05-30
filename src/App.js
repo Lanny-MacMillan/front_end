@@ -32,7 +32,7 @@ function App() {
     const { value } = currentTarget;
     setQuery(value)
   }
-  // console.log('results', results)
+  console.log('results', results)
 
   // ==========================================================
 
