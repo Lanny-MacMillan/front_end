@@ -16,7 +16,6 @@ function App() {
   const [posts, setAllPosts] = useState([])
   const [query, setQuery] = useState('')
   const [showEdit, setShowEdit] = useState(false)
-
   const [username, setUsername] = useState("");
   const [room, setRoom] = useState("");
   const [showChat, setShowChat] = useState(false);
