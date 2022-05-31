@@ -60,9 +60,6 @@ const toggleEdit = () => {
   console.log('results', results)
 
   // ==========================================================
-  // const displayEdit = (event) => {
-  //   setShowEdit(true)
-  // }
   const handleNewBody = (event) => {
     setBody(event.target.value)
   }
@@ -189,7 +186,7 @@ const toggleEdit = () => {
       {!showChat ? (
         <div className="joinChatContainer">
           <h3>Bottle Chat</h3>
-          <h6>Use Room ID 'Bottle' for general chat</h6>
+          <h6>Use Room ID 'Bottle' for general chat, or create a new room to chat in</h6>
           <input
             type="text"
             placeholder="Name..."
