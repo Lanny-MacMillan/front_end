@@ -1,6 +1,9 @@
 body {
   text-align: center;
 }
+Switch {
+  size: 55px;
+}
 #title {
   font-family: snes;
   font-size: 75px;

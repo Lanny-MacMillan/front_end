@@ -14,6 +14,7 @@ function App() {
   const [tags, setTags] = useState('')
   const [posts, setAllPosts] = useState([])
   const [query, setQuery] = useState('')
+  const [showEdit, setShowEdit] = useState(false)
 
   const [username, setUsername] = useState("");
   const [room, setRoom] = useState("");
@@ -32,6 +33,13 @@ function App() {
   // URL below is to our backend...
   // const APIBaseURL = 'https://stark-crag-15310-backend.herokuapp.com/'
 
+
+
+
+  
+const toggleEdit = () => {
+  showEdit ? setShowEdit(false): setShowEdit(true)
+}
   // ====================== SEARCH ===========================
   const fuse = new Fuse(posts, {
     keys: [
@@ -40,7 +48,7 @@ function App() {
     ],
     includeScore: true
   })
-
+  
   const results = fuse.search(query);
   const postsResults = query ? results.map(result => result.item): posts
 
@@ -51,7 +59,9 @@ function App() {
   console.log('results', results)
 
   // ==========================================================
-
+  // const displayEdit = (event) => {
+  //   setShowEdit(true)
+  // }
   const handleNewBody = (event) => {
     setBody(event.target.value)
   }
@@ -114,6 +124,8 @@ function App() {
         })
   }
 
+
+  
   useEffect(() => {
     axios 
         .get(APIBaseURL + 'posts/')
@@ -150,10 +162,15 @@ function App() {
               post={post} //this one confuses me but works
               img={img}
               tags={tags}
+              Post={Post}
               editPost={editPost}
+              Switch={Switch}
+              toggleEdit={toggleEdit}
               handleNewBody={handleNewBody}
               handleNewImg={handleNewImg}
               handleNewTag={handleNewTag}
+              // displayEdit={displayEdit}
+              showEdit={showEdit}
               key={posts._id}/>
           })}
     </div>
