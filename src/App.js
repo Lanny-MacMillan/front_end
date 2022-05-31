@@ -5,6 +5,7 @@ import Post from './components/Post';
 import Chat from './components/Chat';
 import io from "socket.io-client";
 import Fuse from 'fuse.js';
+import { Switch } from 'antd'
 const socket = io.connect("http://localhost:3001");
 
 function App() {
