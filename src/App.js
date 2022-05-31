@@ -34,7 +34,7 @@ const toggleEdit = () => {
     ],
     includeScore: true
   })
-
+  
   const results = fuse.search(query);
   const postsResults = query ? results.map(result => result.item): posts
 
@@ -110,6 +110,8 @@ const toggleEdit = () => {
         })
   }
 
+
+  
   useEffect(() => {
     axios 
         .get(APIBaseURL + 'posts/')
@@ -146,6 +148,7 @@ const toggleEdit = () => {
               post={post} //this one confuses me but works
               img={img}
               tags={tags}
+              Post={Post}
               editPost={editPost}
               Switch={Switch}
               toggleEdit={toggleEdit}
