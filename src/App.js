@@ -174,7 +174,7 @@ function App() {
           <h6>Use Room ID 'Bottle' for general chat</h6>
           <input
             type="text"
-            placeholder="John..."
+            placeholder="Name..."
             onChange={(event) => {
               setUsername(event.target.value);
             }}
