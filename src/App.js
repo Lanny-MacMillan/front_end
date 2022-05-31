@@ -2,7 +2,10 @@ import './App.css';
 import {useEffect, useState} from 'react';
 import axios from 'axios';
 import Post from './components/Post';
+import Chat from './components/Chat';
+import io from "socket.io-client";
 import Fuse from 'fuse.js';
+const socket = io.connect("http://localhost:3001");
 
 function App() {
 
@@ -12,7 +15,20 @@ function App() {
   const [posts, setAllPosts] = useState([])
   const [query, setQuery] = useState('')
 
+  const [username, setUsername] = useState("");
+  const [room, setRoom] = useState("");
+  const [showChat, setShowChat] = useState(false);
+
+  const joinRoom = () => {
+    //allow join room if user has name and room has name
+    if (username !== "" && room !== "") {
+      socket.emit("join_room", room);
+      setShowChat(true);
+    }
+  };
+
   const APIBaseURL = 'http://localhost:3000/'
+  
   // URL below is to our backend...
   // const APIBaseURL = 'https://stark-crag-15310-backend.herokuapp.com/'
 
@@ -111,10 +127,10 @@ function App() {
     <>
     <div id='title'>
       <img id='logo'src='https://i.imgur.com/jHIS9Lc.png'/>
-      
     </div>
 
     <div className='container'>
+      
       <div id='createDiv'>
       <img id='sideLogo' src='https://i.imgur.com/LUF3DVe.png?1'/>
           <form onSubmit={handleFormSubmit}>
@@ -151,6 +167,32 @@ function App() {
         <button>Search Posts</button>
       </form>
     </div>
+    <div className="chat">
+      {!showChat ? (
+        <div className="joinChatContainer">
+          <h3>Bottle Chat</h3>
+          <h6>Use Room ID 'Bottle' for general chat</h6>
+          <input
+            type="text"
+            placeholder="John..."
+            onChange={(event) => {
+              setUsername(event.target.value);
+            }}
+          />
+          <input
+            type="text"
+            placeholder="Room ID..."
+            onChange={(event) => {
+              setRoom(event.target.value);
+            }}
+          />
+          <button onClick={joinRoom}>Join A Room</button>
+        </div>
+      ) : (
+        <Chat socket={socket} username={username} room={room} />
+      )}
+    </div>
+
     <div id='info'>
         <div id='projectTeam'>
           <a href='x'>Contact Us</a>
