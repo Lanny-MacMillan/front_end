@@ -18,8 +18,8 @@ function App() {
   const [query, setQuery] = useState('')
   const [showEdit, setShowEdit] = useState(false)
   const [showDelete, setShowDelete] = useState(false)
-  const [username, setUsername] = useState("");
-  const [room, setRoom] = useState("");
+  const [username, setUsername] = useState('');
+  const [room, setRoom] = useState('');
   const [showChat, setShowChat] = useState(false);
   const [showComments, setShowComments] = useState(false)
 
@@ -157,9 +157,14 @@ function App() {
         .then((response) => {
           // console.log(response.data)
           setAllPosts(response.data)
-          setComments(response.data)
+          // setComments(response.data)
         })
   }, [])
+
+
+
+
+
 
   return (
     <>
@@ -167,8 +172,25 @@ function App() {
       <img id='logo'src='https://i.imgur.com/jHIS9Lc.png'/>
     </div>
 
-  
-   
+
+
+
+  { 
+    <ul>
+        {posts.map((post)=>{
+                return <>
+                      {
+                        showComments ?
+
+                          <li>{post.comments}</li>
+                          :null 
+                      }
+                </>
+            })
+        }
+    </ul>
+  }
+
 
 
 
@@ -187,7 +209,7 @@ function App() {
       </div>
     </div>
     
-   
+
     <div className='container'>
     {postsResults.map((post)=> {
             return <Post 

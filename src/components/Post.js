@@ -28,15 +28,15 @@ const Post = (props) => {
             {/* ======================== DELETE POST ========================  */}
 
             <br/>
-           {props.showDelete ? <button onClick={(event) => {props.removePost(props.post)}}>Delete Post</button> : null}
-      
+            {props.showDelete ? <button onClick={(event) => {props.removePost(props.post)}}>Delete Post</button> : null}
+
             
 
             {/* ====================== COMMENT SWITCH ======================== */}
             <br/>
 
             {props.showComments ? 
-                <div id='showComments'>
+                <div id='showComments'>                 
                     <li>{props.post.comments}</li>
                 </div>
             : null }
