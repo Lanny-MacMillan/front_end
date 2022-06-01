@@ -12,7 +12,7 @@ const Post = (props) => {
         {/* ===================== EDIT POST =========================*/}
             <props.Switch checkedChildren="Toggle Edit" unCheckedChildren="Toggle Edit" onClick={props.toggleEdit}/> 
             <br/>
-            {/* {props.showEdit ? 'Hello' : 'Goodbye'} */}
+            {props.showEdit ? 'Close Edit' : 'Open Edit'}
             {props.showEdit ?
             <div id='showEdit'>
                 <form onSubmit={(event) => {props.editPost(event, props.post)}}>
