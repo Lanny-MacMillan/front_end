@@ -4,6 +4,10 @@ body {
 Switch {
   size: 55px;
 }
+#showComments {
+  background: rgb(228, 223, 61);
+  border-radius: 35px;
+}
 #title {
   font-family: snes;
   font-size: 75px;

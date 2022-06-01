@@ -186,7 +186,8 @@ function App() {
           </form><br/>
       </div>
     </div>
-
+    
+   
     <div className='container'>
     {postsResults.map((post)=> {
             return <Post 

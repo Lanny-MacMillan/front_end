@@ -7,13 +7,12 @@ const Post = (props) => {
             <props.Switch checkedChildren="Comments" unCheckedChildren="Comments" onClick={props.toggleComments}/>
             <props.Switch checkedChildren="Edit" unCheckedChildren="Edit" onClick={props.toggleEdit}/> 
             <props.Switch checkedChildren="Delete" unCheckedChildren="Delete" onClick={props.toggleDelete}/> 
-            <h4>Tag: {props.post.tags}</h4>
-            <h3>Body: {props.post.body}</h3>
+            <h4>Tag(s): <br/>{props.post.tags}</h4>
+            <h3>{props.post.body}</h3>
             <img src={props.post.img} ></img>
             <br/>
         {/* ===================== EDIT SWITCH/POST =========================*/}
-            {/* <props.Switch checkedChildren="Toggle Edit" unCheckedChildren="Toggle Edit" onClick={props.toggleEdit}/>  */}
-            <br/>
+
             {/* {props.showEdit ? 'Hello' : 'Goodbye'} */}
             {props.showEdit ?
             <div id='showEdit'>
@@ -36,7 +35,11 @@ const Post = (props) => {
             {/* ====================== COMMENT SWITCH ======================== */}
             <br/>
 
-            {props.showComments ? <>{props.post.comments}</>: null }
+            {props.showComments ? 
+                <div id='showComments'>
+                    <li>{props.post.comments}</li>
+                </div>
+            : null }
 
             <br/>
             <form onSubmit={(event) => {props.addComment(event, props.post)}}>
