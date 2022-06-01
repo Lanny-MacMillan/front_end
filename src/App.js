@@ -13,12 +13,15 @@ function App() {
   const [body, setBody] = useState('')
   const [img, setImg] = useState('')
   const [tags, setTags] = useState('')
+  const [comments, setComments] = useState('')
   const [posts, setAllPosts] = useState([])
   const [query, setQuery] = useState('')
   const [showEdit, setShowEdit] = useState(false)
+  const [showDelete, setShowDelete] = useState(false)
   const [username, setUsername] = useState("");
   const [room, setRoom] = useState("");
   const [showChat, setShowChat] = useState(false);
+  const [showComments, setShowComments] = useState(false)
 
   const joinRoom = () => {
     //allow join room if user has name and room has name
@@ -34,12 +37,16 @@ function App() {
   // const APIBaseURL = 'https://stark-crag-15310-backend.herokuapp.com/'
 
 
+  const toggleComments = () => {
+    showComments ? setShowComments(false): setShowComments(true)
+  }
+  const toggleEdit = () => {
+    showEdit ? setShowEdit(false): setShowEdit(true)
+  }
+  const toggleDelete = () => {
+    showDelete ? setShowDelete(false): setShowDelete(true)
+  }
 
-
-  
-const toggleEdit = () => {
-  showEdit ? setShowEdit(false): setShowEdit(true)
-}
   // ====================== SEARCH ===========================
   const fuse = new Fuse(posts, {
     keys: [
@@ -68,6 +75,10 @@ const toggleEdit = () => {
   const handleNewTag = (event) => {
     setTags(event.target.value)
   }
+  const handleNewComment = (event) => {
+    setComments(event.target.value)
+  }
+  
   const handleFormSubmit = (event) => {
     event.preventDefault();
     axios.post(
@@ -86,6 +97,23 @@ const toggleEdit = () => {
       })
   }
 
+  const addComment = (event, postData) => {
+    event.preventDefault()
+      axios
+        .put(
+          APIBaseURL + `posts/${postData._id}`,
+          {
+            comments:comments
+          }
+      )
+      .then(() => {
+        axios
+          .get(APIBaseURL + 'posts/')
+          .then((response) => {
+              setAllPosts(response.data)
+          })
+      })
+  }
 
   // ============ NEEDS API ADDRESS ===================================================
   const editPost = (event, postData) => {
@@ -129,6 +157,7 @@ const toggleEdit = () => {
         .then((response) => {
           // console.log(response.data)
           setAllPosts(response.data)
+          setComments(response.data)
         })
   }, [])
 
@@ -137,6 +166,13 @@ const toggleEdit = () => {
     <div id='title'>
       <img id='logo'src='https://i.imgur.com/jHIS9Lc.png'/>
     </div>
+
+  
+   
+
+
+
+
 
     <div className='container'>
       
@@ -154,25 +190,31 @@ const toggleEdit = () => {
     <div className='container'>
     {postsResults.map((post)=> {
             return <Post 
-            //    Props   =    Values
+            //  Props   =    Values
               removePost={removePost} 
-              post={post} //this one confuses me but works
+              post={post} 
               img={img}
               tags={tags}
               Post={Post}
               editPost={editPost}
               Switch={Switch}
+              addComment={addComment}
+              showComments={showComments}
+              showDelete={showDelete}
               toggleEdit={toggleEdit}
+              toggleComments={toggleComments}
+              toggleDelete={toggleDelete}
               handleNewBody={handleNewBody}
               handleNewImg={handleNewImg}
               handleNewTag={handleNewTag}
-              // displayEdit={displayEdit}
+              handleNewComment={handleNewComment}
+              comments={comments}
               showEdit={showEdit}
               key={posts._id}/>
           })}
     </div>
 
-    <div class='sidenav'>
+    <div className='sidenav'>
 
 
     <div id='search'>
