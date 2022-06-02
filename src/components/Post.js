@@ -34,12 +34,14 @@ const Post = (props) => {
 
 {/* ========================================== COMMENT POST ========================================= */}
             <br/>
-
+            {props.showComments ? <h2>Comments</h2> : null}
+            {props.showComments ? <hr/> : null}
             {props.showComments ? 
+            
                 <div id='showComments'>   
                     {props.post.comments.map((comment)=>{
                         return(
-                        <li>{comment}</li>
+                        <li>-{comment}</li>
                         )
                     })}
 
