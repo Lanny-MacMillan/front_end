@@ -1,7 +1,7 @@
 const Post = (props) => {
 
     return(
-    //====================== POST _ID INFO TO DIV CARD =========================
+//====================================== POST _ID INFO TO DIV CARD ===================================
 
         <div id='post-div'>
             <props.Switch checkedChildren="Comments" unCheckedChildren="Comments" onClick={props.toggleComments}/>
@@ -11,7 +11,7 @@ const Post = (props) => {
             <h3>{props.post.body}</h3>
             <img src={props.post.img} ></img>
             <br/>
-        {/* ===================== EDIT SWITCH/POST =========================*/}
+{/* ============================================ EDIT POST =========================================*/}
 
             {/* {props.showEdit ? 'Hello' : 'Goodbye'} */}
             {props.showEdit ?
@@ -25,19 +25,24 @@ const Post = (props) => {
             </div>
             : null}
 
-            {/* ======================== DELETE POST ========================  */}
+{/* =========================================== DELETE POST =========================================  */}
 
             <br/>
             {props.showDelete ? <button onClick={(event) => {props.removePost(props.post)}}>Delete Post</button> : null}
 
             
 
-            {/* ====================== COMMENT SWITCH ======================== */}
+{/* ========================================== COMMENT POST ========================================= */}
             <br/>
 
             {props.showComments ? 
-                <div id='showComments'>                 
-                    <li>{props.post.comments}</li>
+                <div id='showComments'>   
+                    {props.post.comments.map((comment)=>{
+                        return(
+                        <li>{comment}</li>
+                        )
+                    })}
+
                 </div>
             : null }
 
@@ -46,7 +51,6 @@ const Post = (props) => {
                     <input placeholder="What's on your mind..." onChange={props.handleNewComment}  type="text" required/><br/>
                     <input id='button' type="submit" value="Add Comment"/>
                 </form>
-            {/* <props.Switch checkedChildren="Hide Comments" unCheckedChildren="Show Comments" onClick={props.toggleComments}/> */}
 
         </div>
     )
