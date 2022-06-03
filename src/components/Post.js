@@ -39,7 +39,7 @@ const Post = (props) => {
             <br/>
             {props.post.showDelete ? 
             <button onClick={(event) => {props.removePost(props.post)}}>Delete...Are you sure?</button> : null}
-
+            
             
 
 {/* ========================================== COMMENT POST ========================================= */}
