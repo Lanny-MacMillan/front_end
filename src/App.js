@@ -9,7 +9,7 @@ import { Switch } from 'antd'
 const socket = io.connect("http://localhost:3001");
 
 function App() {
-
+  const [name, setName] = useState('')
   const [body, setBody] = useState('')
   const [img, setImg] = useState('')
   const [tags, setTags] = useState('')
@@ -17,12 +17,15 @@ function App() {
   const [comment, setComment] = useState('')
   const [posts, setAllPosts] = useState([])
   const [query, setQuery] = useState('')
-  const [showEdit, setShowEdit] = useState(false)
-  const [showDelete, setShowDelete] = useState(false)
+  const [newShowDelete, setNewShowDelete] = useState(false)
+  const [newShowEdit, setNewShowEdit] = useState(false)
+  const [newShowComments, setNewShowComments] = useState(false)
   const [username, setUsername] = useState('');
   const [room, setRoom] = useState('');
   const [showChat, setShowChat] = useState(false);
-  const [showComments, setShowComments] = useState(false)
+  // const [showEdit, setShowEdit] = useState(false)
+  // const [showDelete, setShowDelete] = useState(false)
+
 
 
   // =============================== JOIN CHAT FUNCTION ====================================
@@ -38,19 +41,58 @@ function App() {
 
   const APIBaseURL = 'http://localhost:3000/'
   // URL below is to our backend...
-  // const APIBaseURL = 'https://stark-crag-15310-backend.herokuapp.com/'
+  const APIBaseURL2 = 'https://stark-crag-15310-backend.herokuapp.com/'
 
-  // ===================================== SWITCH TOGGLES ==================================
+  // ================================= SWITCH TOGGLE COMMENT ===============================
 
-  const toggleComments = () => {
-    showComments ? setShowComments(false): setShowComments(true)
-  }
-  const toggleEdit = () => {
-    showEdit ? setShowEdit(false): setShowEdit(true)
-  }
-  const toggleDelete = () => {
-    showDelete ? setShowDelete(false): setShowDelete(true)
-  }
+  const toggleComments = (postData, event) => {
+    newShowComments ? setNewShowComments(false): setNewShowComments(true)
+    axios
+    .put(`http://localhost:3000/posts/${postData._id}`, 
+      {
+      showComments: newShowComments
+      })
+    .then(()=>{
+      axios
+          .get('http://localhost:3000/posts').then((response)=>{
+          setAllPosts(response.data)
+    })
+  })
+}
+
+  // ================================= SWITCH TOGGLE EDIT ==================================
+
+  const toggleEdit = (postData, event) => {
+    newShowEdit ? setNewShowEdit(false): setNewShowEdit(true)
+    axios
+    .put(`http://localhost:3000/posts/${postData._id}`, 
+      {
+      showEdit: newShowEdit
+      })
+    .then(()=>{
+      axios
+          .get('http://localhost:3000/posts').then((response)=>{
+          setAllPosts(response.data)
+    })
+  })
+}
+
+// ================================= SWITCH TOGGLE DELETE ===============================
+
+  const toggleDelete = (postData, event) => {
+    newShowDelete ? setNewShowDelete(false): setNewShowDelete(true)
+    axios
+    .put(`http://localhost:3000/posts/${postData._id}`, 
+      {
+      showDelete: newShowDelete
+      })
+    .then(()=>{
+      axios
+          .get('http://localhost:3000/posts').then((response)=>{
+          setAllPosts(response.data)
+    })
+  })
+}
 
   // ======================================== SEARCH =======================================
 
@@ -73,6 +115,9 @@ function App() {
 
   // ===================================== HANDLES CHANGES =================================
 
+  const handleNewName = (event) => {
+    setName(event.target.value)
+  }
   const handleNewBody = (event) => {
     setBody(event.target.value)
   }
@@ -86,14 +131,20 @@ function App() {
     setComment(event.target.value)
   }
   
+    // ================================ CREATE POST FUNCTION =================================
+
   const handleFormSubmit = (event) => {
     event.preventDefault();
     axios.post(
       APIBaseURL + 'posts/',
       {
+        name:name,
         body:body,
         img:img,
         tags:tags,
+        showEdit: false,
+        showDelete: false,
+        showComments: false
       }//then request is so we dont have to reload page on submission
     ).then(()=>{
       axios
@@ -187,6 +238,7 @@ function App() {
       <div id='createDiv'>
       <img id='sideLogo' src='https://i.imgur.com/LUF3DVe.png?1'/>
           <form onSubmit={handleFormSubmit}>
+            <input type='text' placeholder='Name' onChange={handleNewName} required/><br/>
             <input type='text' placeholder='Body' onChange={handleNewBody} required/><br/>
             <input type='text' placeholder='Img' onChange={handleNewImg} required/><br/>
             <input type='text' placeholder='Tag' onChange={handleNewTag} required/><br/>
@@ -210,8 +262,9 @@ function App() {
               editPost={editPost}
               Switch={Switch}
               addComment={addComment}
-              showComments={showComments}
-              showDelete={showDelete}
+              // showComments={showComments}
+              // showDelete={showDelete}
+              // newShowDelete={newShowDelete}
               toggleEdit={toggleEdit}
               toggleComments={toggleComments}
               toggleDelete={toggleDelete}
@@ -220,7 +273,7 @@ function App() {
               handleNewTag={handleNewTag}
               handleNewComment={handleNewComment}
               comments={comments}
-              showEdit={showEdit}
+              // showEdit={showEdit}
               key={posts._id}/>
           })}
     </div>
