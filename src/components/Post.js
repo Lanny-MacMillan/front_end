@@ -3,19 +3,28 @@ const Post = (props) => {
     return(
 //====================================== POST _ID INFO TO DIV CARD ===================================
 
-        <div id='post-div'>
-            <props.Switch checkedChildren="Comments" unCheckedChildren="Comments" onClick={props.toggleComments}/>
-            <props.Switch checkedChildren="Edit" unCheckedChildren="Edit" onClick={props.toggleEdit}/> 
-            <props.Switch checkedChildren="Delete" unCheckedChildren="Delete" onClick={props.toggleDelete}/> 
-            <h4>Tag(s): <br/>{props.post.tags}</h4>
-            <h3>{props.post.body}</h3>
-            <img src={props.post.img} ></img>
+    <div id='post-div'>
+        <button onClick={() => {props.toggleComments(props.post)}}>Comments</button>
+        <button onClick={() => {props.toggleEdit(props.post)}}>Edit</button>
+        <button onClick={() => {props.toggleDelete(props.post)}}>Delete</button>
             <br/>
+        {/* <props.Switch checkedChildren="Comments" unCheckedChildren="Comments" onClick={() => {props.toggleComments(props.post)}}/>
+
+        <props.Switch checkedChildren="Edit" unCheckedChildren="Edit" onClick={() => {props.toggleEdit(props.post)}}/>
+
+        <props.Switch checkedChildren="Delete" unCheckedChildren="Delete" onClick={() => {props.toggleDelete(props.post)}}/> 
+ */}
+        <h4>Tag(s): <br/>{props.post.tags}</h4>
+        <h4>Name : {props.post.name}</h4>
+        <h4>{props.post.body}</h4>
+        <img src={props.post.img} ></img>
+
 {/* ============================================ EDIT POST =========================================*/}
 
             {/* {props.showEdit ? 'Hello' : 'Goodbye'} */}
-            {props.showEdit ?
+            {props.post.showEdit ? 
             <div id='showEdit'>
+                <br/>
                 <form onSubmit={(event) => {props.editPost(event, props.post)}}>
                     <input placeholder={props.post.body} onChange={props.handleNewBody}  type="text" required/><br/>
                     <input placeholder={props.post.img} onChange={props.handleNewImg} type="text" required/><br/>
@@ -26,17 +35,18 @@ const Post = (props) => {
             : null}
 
 {/* =========================================== DELETE POST =========================================  */}
-
             <br/>
-            {props.showDelete ? <button onClick={(event) => {props.removePost(props.post)}}>Delete Post</button> : null}
-
+            <br/>
+            {props.post.showDelete ? 
+            <button onClick={(event) => {props.removePost(props.post)}}>Delete...Are you sure?</button> : null}
+            
             
 
 {/* ========================================== COMMENT POST ========================================= */}
-            <br/>
-            {props.showComments ? <h2>Comments</h2> : null}
-            {props.showComments ? <hr/> : null}
-            {props.showComments ? 
+            
+            {props.post.showComments ? <h2>Comments</h2> : null}
+            {props.post.showComments ? <hr/> : null}
+            {props.post.showComments ? 
             
                 <div id='showComments'>   
                     {props.post.comments.map((comment)=>{
