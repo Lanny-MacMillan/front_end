@@ -39,22 +39,22 @@ function App() {
 
   // ==================================== API BASE URLS ====================================
 
-  const APIBaseURL = 'http://localhost:3000/'
+  // const APIBaseURL = 'http://localhost:3000/'
   // URL below is to our backend...
-  const APIBaseURL2 = 'https://stark-crag-15310-backend.herokuapp.com/'
+  const APIBaseURL = 'https://stark-crag-15310-backend.herokuapp.com/'
 
   // ================================= SWITCH TOGGLE COMMENT ===============================
 
   const toggleComments = (postData, event) => {
     newShowComments ? setNewShowComments(false): setNewShowComments(true)
     axios
-    .put(`http://localhost:3000/posts/${postData._id}`, 
+    .put(`APIBaseURL/${postData._id}`, 
       {
       showComments: newShowComments
       })
     .then(()=>{
       axios
-          .get('http://localhost:3000/posts').then((response)=>{
+          .get('APIBaseURL').then((response)=>{
           setAllPosts(response.data)
     })
   })
@@ -65,13 +65,13 @@ function App() {
   const toggleEdit = (postData, event) => {
     newShowEdit ? setNewShowEdit(false): setNewShowEdit(true)
     axios
-    .put(`http://localhost:3000/posts/${postData._id}`, 
+    .put(`APIBaseURL/${postData._id}`, 
       {
       showEdit: newShowEdit
       })
     .then(()=>{
       axios
-          .get('http://localhost:3000/posts').then((response)=>{
+          .get('APIBaseURL').then((response)=>{
           setAllPosts(response.data)
     })
   })
@@ -82,13 +82,13 @@ function App() {
   const toggleDelete = (postData, event) => {
     newShowDelete ? setNewShowDelete(false): setNewShowDelete(true)
     axios
-    .put(`http://localhost:3000/posts/${postData._id}`, 
+    .put(`APIBaseURL/${postData._id}`, 
       {
       showDelete: newShowDelete
       })
     .then(()=>{
       axios
-          .get('http://localhost:3000/posts').then((response)=>{
+          .get('APIBaseURL').then((response)=>{
           setAllPosts(response.data)
     })
   })
