@@ -147,6 +147,7 @@ function App() {
         showComments: false
       }//then request is so we dont have to reload page on submission
     ).then(()=>{
+      event.target.reset()
       axios
           .get(APIBaseURL + 'posts/')
           .then((response)=>{
@@ -166,6 +167,7 @@ function App() {
           }
       )
       .then(() => {
+        event.target.reset()
         axios
           .get(APIBaseURL + 'posts/')
           .then((response) => {
@@ -187,6 +189,7 @@ function App() {
           }
       )
       .then(() => {
+        event.target.reset()
         axios
           .get(APIBaseURL + 'posts/')
           .then((response) => {

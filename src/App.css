@@ -6,7 +6,7 @@ Switch {
 }
 #showComments {
   background: rgb(228, 223, 61);
-  border-radius: 35px;
+
 }
 #title {
   font-family: snes;
@@ -43,7 +43,7 @@ Switch {
 }
 img {
   width: 100%;
-  max-width: 200px;
+  max-width: 350px;
 }
 ul {
   padding: 0;

@@ -2,18 +2,30 @@ const Post = (props) => {
 
     return(
 //====================================== POST _ID INFO TO DIV CARD ===================================
+<div id='post-div'>
+    <div class="container">
+        <div class="container-fluid">
+            <div class="row">  
+                <div class="col-4 mx-auto, col-sm-4 mx-auto, col-md-3 mx-auto">
+                    <ul class="navbar-nav mx-auto">
+                        <button onClick={() => {props.toggleComments(props.post)}} class="btn btn-secondary btn-sm">Comments</button>
+                    </ul>
+                </div>
+                <div class="col-4 mx-auto, col-sm-4 mx-auto, col-md-3 mx-auto">
+                    <ul class="navbar-nav mx-auto">
+                    <button onClick={() => {props.toggleDelete(props.post)}} class="btn btn-danger btn-sm">Delete</button>
+                       
+                    </ul>
+                </div>
+                <div class="col-4 mx-auto, col-sm-4 mx-auto, col-md-3 mx-auto">
+                        <ul class="navbar-nav mx-auto">
+                        <button onClick={() => {props.toggleEdit(props.post)}} class="btn btn-secondary btn-sm">Edit</button>
+                    </ul>
+                </div>
+            </div>  
+        </div>
+    </div>
 
-    <div id='post-div'>
-        <button onClick={() => {props.toggleComments(props.post)}}>Comments</button>
-        <button onClick={() => {props.toggleEdit(props.post)}}>Edit</button>
-        <button onClick={() => {props.toggleDelete(props.post)}}>Delete</button>
-            <br/>
-        {/* <props.Switch checkedChildren="Comments" unCheckedChildren="Comments" onClick={() => {props.toggleComments(props.post)}}/>
-
-        <props.Switch checkedChildren="Edit" unCheckedChildren="Edit" onClick={() => {props.toggleEdit(props.post)}}/>
-
-        <props.Switch checkedChildren="Delete" unCheckedChildren="Delete" onClick={() => {props.toggleDelete(props.post)}}/> 
- */}
         <h4>Tag(s): <br/>{props.post.tags}</h4>
         <h4>Name : {props.post.name}</h4>
         <h4>{props.post.body}</h4>
@@ -64,8 +76,7 @@ const Post = (props) => {
                     <input id='button' type="submit" value="Add Comment"/>
                 </form>
 
-        </div>
-    )
-
+</div>
+)
 } 
 export default Post
