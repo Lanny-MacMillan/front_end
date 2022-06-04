@@ -6,6 +6,7 @@ import Chat from './components/Chat';
 import io from "socket.io-client";
 import Fuse from 'fuse.js';
 import { Switch } from 'antd'
+//May have to connect this to back or front end heroku
 const socket = io.connect("http://localhost:3001");
 
 function App() {
@@ -41,7 +42,7 @@ function App() {
 
   const APIBaseURL = 'http://localhost:3000/'
   // URL below is to our backend...
-  const APIBaseURL2 = 'https://stark-crag-15310-backend.herokuapp.com/'
+  // const APIBaseURL2 = 'https://stark-crag-15310-backend.herokuapp.com/'
 
   // ================================= SWITCH TOGGLE COMMENT ===============================
 
