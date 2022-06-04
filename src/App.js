@@ -236,20 +236,28 @@ function App() {
 
 
   {/* ======================== CREATE/POST DIV AND LOGO2 =================================== */}
-
-    <div className='container'>
-      <div id='createDiv'>
-      <img id='sideLogo' src='https://i.imgur.com/LUF3DVe.png?1'/>
-          <form onSubmit={handleFormSubmit}>
-            <input type='text' placeholder='Name' onChange={handleNewName} required/><br/>
-            <input type='text' placeholder='Body' onChange={handleNewBody} required/><br/>
-            <input type='text' placeholder='Img' onChange={handleNewImg} required/><br/>
-            <input type='text' placeholder='Tag' onChange={handleNewTag} required/><br/>
-            <input type='submit' value='Create Post'/>
-          </form><br/>
+  <div id='createDiv' class="container-fluid">
+    <div class="row">  
+      <div class="col-xs-6 mx-auto, col-sm-8 mx-auto, col-md-8 mx-auto">
+        <img id='sideLogo' src='https://i.imgur.com/LUF3DVe.png?1'/>
       </div>
     </div>
+    <div class="row">
+      <div class="col-xs-6 mx-auto, col-sm-8 mx-auto, col-md-8 mx-auto">
+        <form onSubmit={handleFormSubmit}>
+          <input type='text' class="form-control" placeholder='Name' onChange={handleNewName} required/>
+          <input type='text' class="form-control" placeholder='Body' onChange={handleNewBody} required/>
+          <input type='text' class="form-control" placeholder='Img(url)' onChange={handleNewImg} required/>
+          <input type='text' class="form-control" placeholder='Tag' onChange={handleNewTag} required/>
+          <input type='submit' class="form-control" value='Create Post'/>
+        </form><br/>
+      </div>
+    </div>
+  </div>
     
+
+
+
   {/* ======================== MAP-SEARCH/ALL POSTS PASS PROPS =================================== */}
 
     <div className='container'>
@@ -287,9 +295,8 @@ function App() {
 
   {/* ================================ SEARCH ===================================== */}
       <div id='search'>
-        <form id="form"> 
-        <input type="search" value={query} onChange={handleOnSearch} id="query" name="q" placeholder="Search..."/>
-          <button>Search Posts</button>
+        <form id="form" > 
+          <input class="form-control"  type="search"  value={query} onChange={handleOnSearch} id="query" name="q" placeholder="Search Posts..."/>
         </form>
       </div>
 
@@ -333,19 +340,6 @@ function App() {
                 <a href='https://github.com/Lanny-MacMillan' target="_blank">Lanny</a>
                 <a href='https://github.com/kbrpronet' target="_blank">Kai</a>
               </li>
-            <p>Dev Links:<hr/></p>
-              <li>
-                <a href='https://cloud.mongodb.com/v2/6290d9dd104b8b4c06555ef8#metrics/replicaSet/6290da14a1cd8c01b39440e9/explorer/test/posts/find'
-                target="_blank">Atlas DB</a>
-              </li>
-              <li>
-                <a href='https://github.com/Lanny-MacMillan/front_end'
-                target="_blank">Git Front</a>
-              </li>
-              <li>
-                <a href='https://github.com/Lanny-MacMillan/back_end' 
-                target="_blank">Git Back</a>
-                </li>
             </ul>
           </div>
         </div>
