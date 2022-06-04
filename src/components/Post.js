@@ -13,8 +13,7 @@ const Post = (props) => {
                 </div>
                 <div class="col-4 mx-auto, col-sm-4 mx-auto, col-md-3 mx-auto">
                     <ul class="navbar-nav mx-auto">
-                    <button onClick={() => {props.toggleDelete(props.post)}} class="btn btn-danger btn-sm">Delete</button>
-                       
+                        <button onClick={() => {props.toggleDelete(props.post)}} class="btn btn-danger btn-sm">Delete</button>
                     </ul>
                 </div>
                 <div class="col-4 mx-auto, col-sm-4 mx-auto, col-md-3 mx-auto">
