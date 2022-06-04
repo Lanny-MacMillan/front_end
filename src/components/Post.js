@@ -70,11 +70,12 @@ const Post = (props) => {
             : null }
 
             <br/>
+            
             <form onSubmit={(event) => {props.addComment(event, props.post)}}>
                     <input placeholder="What's on your mind..." onChange={props.handleNewComment}  type="text" required/><br/>
                     <input id='button' type="submit" value="Add Comment"/>
                 </form>
-
+        
 </div>
 )
 } 
