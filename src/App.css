@@ -6,7 +6,7 @@ Switch {
 }
 #showComments {
   background: rgb(228, 223, 61);
-
+  border-radius: 35px;
 }
 #title {
   font-family: snes;
@@ -41,10 +41,14 @@ Switch {
   /* width: 100%; */
   max-width: 350px;
 }
+#sideLogo {
+  max-width: 200px;;
+}
 img {
   width: 100%;
   max-width: 350px;
 }
+
 ul {
   padding: 0;
 }
