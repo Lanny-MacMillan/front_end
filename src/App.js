@@ -5,7 +5,9 @@ import Post from './components/Post';
 import Chat from './components/Chat';
 import io from "socket.io-client";
 import Fuse from 'fuse.js';
-import { Switch } from 'antd'
+import { Switch } from 'antd';
+import Button from '@mui/material/Button';
+
 const socket = io.connect("http://localhost:3001");
 
 function App() {
@@ -25,7 +27,7 @@ function App() {
   const [showChat, setShowChat] = useState(false);
   // const [showEdit, setShowEdit] = useState(false)
   // const [showDelete, setShowDelete] = useState(false)
-
+  
 
 
   // =============================== JOIN CHAT FUNCTION ====================================
@@ -286,7 +288,7 @@ function App() {
       <div id='search'>
         <form id="form"> 
         <input type="search" value={query} onChange={handleOnSearch} id="query" name="q" placeholder="Search..."/>
-          <button>Search Posts</button>
+          <Button variant="outlined" >Search Posts</Button>
         </form>
       </div>
 
@@ -330,19 +332,6 @@ function App() {
                 <a href='https://github.com/Lanny-MacMillan' target="_blank">Lanny</a>
                 <a href='https://github.com/kbrpronet' target="_blank">Kai</a>
               </li>
-            <p>Dev Links:<hr/></p>
-              <li>
-                <a href='https://cloud.mongodb.com/v2/6290d9dd104b8b4c06555ef8#metrics/replicaSet/6290da14a1cd8c01b39440e9/explorer/test/posts/find'
-                target="_blank">Atlas DB</a>
-              </li>
-              <li>
-                <a href='https://github.com/Lanny-MacMillan/front_end'
-                target="_blank">Git Front</a>
-              </li>
-              <li>
-                <a href='https://github.com/Lanny-MacMillan/back_end' 
-                target="_blank">Git Back</a>
-                </li>
             </ul>
           </div>
         </div>
