@@ -5,17 +5,17 @@ const Post = (props) => {
 <div id='post-div'>
         <div class="container-fluid">
             <div class="row">  
-                <div class="col-10 mx-auto, col-sm-4 mx-auto, col-md-3 mx-auto">
+                <div class="col-10 mx-auto, col-sm-4 mx-auto, col-md-4 mx-auto">
                     <ul class="navbar-nav mx-auto">
                         <button onClick={() => {props.toggleComments(props.post)}} id='commentButton' class="btn btn-secondary btn-sm">Comments</button>
                     </ul>
                 </div>
-                <div class="col-10 mx-auto, col-sm-4 mx-auto, col-md-3 mx-auto">
+                <div class="col-10 mx-auto, col-sm-4 mx-auto, col-md-4 mx-auto">
                     <ul class="navbar-nav mx-auto">
                         <button onClick={() => {props.toggleDelete(props.post)}} id='deleteButton' class="btn btn-danger btn-sm">Delete</button>
                     </ul>
                 </div>
-                <div class="col-10 mx-auto, col-sm-4 mx-auto, col-md-3 mx-auto">
+                <div class="col-10 mx-auto, col-sm-4 mx-auto, col-md-4 mx-auto">
                         <ul class="navbar-nav mx-auto">
                         <button onClick={() => {props.toggleEdit(props.post)}} id='editButton' class="btn btn-secondary btn-sm">Edit</button>
                     </ul>
