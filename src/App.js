@@ -5,7 +5,9 @@ import Post from './components/Post';
 import Chat from './components/Chat';
 import io from "socket.io-client";
 import Fuse from 'fuse.js';
-import { Switch } from 'antd'
+import { Switch } from 'antd';
+import Button from '@mui/material/Button';
+
 const socket = io.connect("http://localhost:3001");
 
 function App() {
@@ -25,7 +27,7 @@ function App() {
   const [showChat, setShowChat] = useState(false);
   // const [showEdit, setShowEdit] = useState(false)
   // const [showDelete, setShowDelete] = useState(false)
-
+  
 
 
   // =============================== JOIN CHAT FUNCTION ====================================
@@ -414,12 +416,14 @@ function App() {
             </div>
           </div>
             <br/>
+
             <p id='projectTeam'>Project Team:<hr/></p>
               <a href='https://github.com/Lanny-MacMillan' target="_blank">
               <i class="bi bi-github"> Lanny</i></a>
 
               <a href='https://github.com/kbrpronet' target="_blank">
               <i class="bi bi-github"> Kai</i></a>
+
           </div>
         </div>
         <h8 class="tag" >© 2022 The Bottle App.</h8>
