@@ -1,29 +1,75 @@
 
 body {
   text-align: center;
-  /* background-image: url(https://img.freepik.com/free-vector/ocean-sea-waves-with-ripples_1017-30742.jpg?t=st=1654367620~exp=1654368220~hmac=189cf037af4d6828a9874fb3a2755b5e86e37b54aedb0b91a43f7a664bfedb0e&w=1060) ; */
-  /* background-image: url(https://img.freepik.com/free-vector/underwater-background-water-surface-ocean-sea-swimming-pool-transparent-aqua-texture-with-air-bubbles-ripples-sun-rays-falling-template-advertising-realistic-3d-illustration_107791-4324.jpg?w=1060&t=st=1654368407~exp=1654369007~hmac=a63722e1903208d4a56a5067f95e7235a8b44d5dfaf4ed8728f76eac26f0461d) ; */
-  /* background-image: url(https://img.freepik.com/free-vector/ocean-sea-waves-with-white-foam-nature-landscape_107791-1563.jpg?w=2000&t=st=1654368363~exp=1654368963~hmac=2b9e224642fb90bd22925b3e6c7092919b3e6176f61adf5e175b4d7992e463b0) ; */
+  /* background-image: url(https://img.freepik.com/free-vector/ocean-sea-waves-with-ripples_1017-30742.jpg?t=st=1654367620~exp=1654368220~hmac=189cf037af4d6828a9874fb3a2755b5e86e37b54aedb0b91a43f7a664bfedb0e&w=1060) ;  */
+  background-image: url(https://i.pinimg.com/564x/17/80/4f/17804fdb01c5c3f06d724ba6a787c750.jpg) ;
+  /* background-image: url(https://i.pinimg.com/564x/0b/33/88/0b338826825bd2d30c95af5788335057.jpg) ; */
   /* background-image: url(https://as1.ftcdn.net/v2/jpg/02/30/71/42/1000_F_230714283_2i6aqV8QwRaDzySK6xM0O8y9N885CNl5.jpg) ; */
-  background-position: center center;
+  /* background-position: center center; */
   background-repeat: no-repeat;
   background-attachment: fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
+  background-size: cover; 
   }
+#tags {
+  font-size: 18px;
+  font-weight: bolder;
+}
+#name {
+  font-size: 18px;
+  font-weight: bolder;
+}
 Switch {
   size: 55px;
 }
+#createPost {
+  color: white;
+  background-color: #aaa
+}
+#deleteButton {
+  margin-top: 8px;
+}
+#editButton {
+  color: white;
+  background-color: #4b4949;
+  margin-top: 8px;
+}
+span {
+  position: fixed; 
+  bottom: 5pt; 
+  left: 5pt;
+}
+#projectTeam {
+  color: rgb(254, 254, 254);
+}
+#toTop {
+  font-size: 2em;
+  color: black;
+}
+#commentButton {
+  color: white;
+  background-color: #4b4949;
+  margin-top: 8px;
+}
+#buttonEdit{
+  color: white;
+background-color: #4b4949;
+}
+#editSubmit {
+  color: white;
+  background-color: #4b4949;
+  margin-bottom: 8px;
+}
+.modal-backdrop.in { z-index: auto;}
 #showComments {
-  background: rgb(53, 205, 206);
+  background: #9bdded;
   border-radius: 15px;
 }
 #title {
   font-family: snes;
   font-size: 75px;
-  /* background: rgb(221, 125, 226); */
   margin-bottom: 15px;
 }
 .container {
@@ -36,24 +82,25 @@ Switch {
   text-align: center;
   /* background: rgb(140, 226, 125); */
   box-shadow: 5px 5px 5px 5px rgb(28, 29, 48);
-  width: 350px;
+  width: 300px;
+  height: 300px;
   border-radius: 35px;
   margin-bottom: 15px;
+  margin-right: 420px;
 }
 #post-div {
   text-align: center;
   width: 700px;
-  /* border: 1px solid black; */
   margin-bottom: 15px;
   margin-right: 200px;
-  opacity: .85;
+  /* opacity: .85; */
   border-radius: 35px;
   box-shadow: 5px 5px 5px 5px rgb(28, 29, 48);
-  /* background: rgb(63, 105, 138); */
 }
 #logo {
   /* width: 100%; */
   max-width: 350px;
+  margin-right: 200px;
 }
 #sideLogo {
   max-width: 200px;;
@@ -75,7 +122,7 @@ ul {
   z-index: 1;
   top: 0;
   right: 0;
-  background-color: rgb(121, 125, 142);
+  background-color: rgb(51,65,92);
   overflow-x: hidden;
   padding-top: 20px;
   flex-direction: column;
@@ -88,12 +135,12 @@ ul {
 #projectTeam {
   /* flex-direction: column; */
   align-self: flex-end;
-  margin-bottom: 10px;
+  margin-top: 40px;
   width: 100%;
 }
 #info {
   display: flex;
-  margin-bottom: 10px;
+  margin-top: 40px;
   width: 100%;
 }
 
