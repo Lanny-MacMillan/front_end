@@ -1,11 +1,6 @@
 
 body {
   text-align: center;
-  /* background-image: url(https://img.freepik.com/free-vector/ocean-sea-waves-with-ripples_1017-30742.jpg?t=st=1654367620~exp=1654368220~hmac=189cf037af4d6828a9874fb3a2755b5e86e37b54aedb0b91a43f7a664bfedb0e&w=1060) ;  */
-  /* background-image: url(https://i.pinimg.com/564x/17/80/4f/17804fdb01c5c3f06d724ba6a787c750.jpg) ; */
-  /* background-image: url(https://i.pinimg.com/564x/0b/33/88/0b338826825bd2d30c95af5788335057.jpg) ; */
-  /* background-image: url(https://as1.ftcdn.net/v2/jpg/02/30/71/42/1000_F_230714283_2i6aqV8QwRaDzySK6xM0O8y9N885CNl5.jpg) ; */
-  /* background-position: center center; */
   background-repeat: no-repeat;
   background-attachment: fixed;
   -webkit-background-size: cover;
