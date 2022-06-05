@@ -1,22 +1,71 @@
-
-
 body {
   text-align: center;
   background-color: #79bbc7;
   background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23bedae2' fill-opacity='0.97' fill-rule='evenodd'/%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover; 
+  font-family: "Dosis", sans-serif;
+  }
+#tags {
+  font-size: 18px;
+  font-weight: bolder;
+}
+#name {
+  font-size: 18px;
+  font-weight: bolder;
+
 }
 
 Switch {
   size: 55px;
 }
+#createPost {
+  color: white;
+  background-color: #aaa
+}
+#deleteButton {
+  margin-top: 8px;
+}
+#editButton {
+  color: white;
+  background-color: #4b4949;
+  margin-top: 8px;
+}
+span {
+  position: fixed; 
+  bottom: 5pt; 
+  left: 5pt;
+}
+#projectTeam {
+  color: rgb(254, 254, 254);
+}
+#toTop {
+  font-size: 2em;
+  color: black;
+}
+#commentButton {
+  color: white;
+  background-color: #4b4949;
+  margin-top: 8px;
+}
+#buttonEdit{
+  color: white;
+background-color: #4b4949;
+}
+#editSubmit {
+  color: white;
+  background-color: #4b4949;
+  margin-bottom: 8px;
+}
+.modal-backdrop.in { z-index: auto;}
 #showComments {
+
   background: rgba(247,188,119,1);
   border-radius: 35px;
 }
 #title {
   font-family: snes;
   font-size: 75px;
-  background: rgba(225,191,146,1);
   margin-bottom: 15px;
 }
 .container {
@@ -34,26 +83,30 @@ Switch {
   padding-top:10px;
   box-shadow: 3px 3px rgba(173,109,80);
   border: 1px solid  rgba(214,121,52);
-  
+ 
 }
 #post-div {
   text-align: center;
-  width: 550px;
-  border: 1px solid black;
+  width: 700px;
   margin-bottom: 15px;
-  opacity: .85;
-  border-top-right-radius: 35px;
-  border-bottom-left-radius: 35px;
-  background: rgb(83, 187, 201);
+  margin-right: 200px;
+  /* opacity: .85; */
+  border-radius: 35px;
+  box-shadow: 5px 5px 5px 5px rgb(28, 29, 48);
 }
 #logo {
   /* width: 100%; */
   max-width: 350px;
+  margin-right: 200px;
 }
-img {
+#sideLogo {
+  max-width: 200px;;
+}
+/* img {
   width: 100%;
-  max-width: 200px;
-}
+  max-width: 450px;
+} */
+
 ul {
   padding: 0;
 }
@@ -74,17 +127,17 @@ ul {
 }
 #search {
   align-self: flex-start;
-  
+  padding-left: 10px;
 }
 #projectTeam {
   /* flex-direction: column; */
   align-self: flex-end;
-  margin-bottom: 10px;
+  margin-top: 40px;
   width: 100%;
 }
 #info {
   display: flex;
-  margin-bottom: 10px;
+  margin-top: 40px;
   width: 100%;
 }
 
