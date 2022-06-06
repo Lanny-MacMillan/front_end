@@ -7,7 +7,8 @@ import io from "socket.io-client";
 import Fuse from 'fuse.js';
 import { Switch } from 'antd';
 
-const socket = io.connect("http://localhost:3001");
+// const socket = io.connect("http://localhost:3001");
+const socket = io.connect("https://stark-crag-15310-backend.herokuapp.com/");
 
 function App() {
   const [name, setName] = useState('')
