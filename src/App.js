@@ -9,6 +9,7 @@ import { Switch } from 'antd';
 
 // const socket = io.connect("http://localhost:3001");
 const socket = io.connect("https://stark-crag-15310-backend.herokuapp.com/");
+// const socket = io.connect("https://mighty-tor-36415-frontend.herokuapp.com/");
 
 function App() {
   const [name, setName] = useState('')
