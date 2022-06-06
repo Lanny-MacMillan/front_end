@@ -7,8 +7,8 @@ import io from "socket.io-client";
 import Fuse from 'fuse.js';
 import { Switch } from 'antd';
 
-// const socket = io.connect("http://localhost:3001");
-const socket = io.connect("https://stark-crag-15310-backend.herokuapp.com/");
+const socket = io.connect("http://localhost:3001");
+// const socket = io.connect("https://stark-crag-15310-backend.herokuapp.com/");
 // const socket = io.connect("https://mighty-tor-36415-frontend.herokuapp.com/");
 
 function App() {
@@ -42,9 +42,9 @@ function App() {
 
   // ==================================== API BASE URLS ====================================
 
-  // const APIBaseURL = 'http://localhost:3000/'
-  // URL below is to our backend...
-  const APIBaseURL = 'https://stark-crag-15310-backend.herokuapp.com/'
+  const APIBaseURL = 'http://localhost:3000/'
+  // URL below is to our backend
+  // const APIBaseURL = 'https://stark-crag-15310-backend.herokuapp.com/'
 
   // ================================= SWITCH TOGGLE COMMENT ===============================
 
@@ -241,24 +241,26 @@ function App() {
 
   {/* ======================== CREATE/POST DIV AND LOGO2 =================================== */}
   <div className='container'>
-    <div id='createDiv' class="container-fluid">
-      <div class="row">  
-        <div class="col-xs-8 mx-auto, col-sm-8 mx-auto, col-md-10 mx-auto">
-          <img id='sideLogo' src='https://i.imgur.com/LUF3DVe.png?1'/>
+   
+      <div id='createDiv' class="container-fluid">
+        <div class="row">  
+          <div class="col-xs-8 mx-auto, col-sm-8 mx-auto, col-md-10 mx-auto">
+            <img id='sideLogo' src='https://i.imgur.com/LUF3DVe.png?1'/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-8 mx-auto, col-sm-8 mx-auto, col-md-10 mx-auto">
+            <form  onSubmit={handleFormSubmit}>
+              <input type='text' class="form-control input-sm" placeholder='Name' onChange={handleNewName} required/>
+              <input type='text' class="form-control input-sm" placeholder='Body' onChange={handleNewBody} required/>
+              <input type='text' class="form-control input-sm" placeholder='Img(url)' onChange={handleNewImg} required/>
+              <input type='text' class="form-control input-sm" placeholder='Tag' onChange={handleNewTag} required/>
+              <input type='submit' id='createPost' class="form-control input-sm" value='Create Post'/>
+            </form><br/>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-xs-8 mx-auto, col-sm-8 mx-auto, col-md-10 mx-auto">
-          <form  onSubmit={handleFormSubmit}>
-            <input type='text' class="form-control input-sm" placeholder='Name' onChange={handleNewName} required/>
-            <input type='text' class="form-control input-sm" placeholder='Body' onChange={handleNewBody} required/>
-            <input type='text' class="form-control input-sm" placeholder='Img(url)' onChange={handleNewImg} required/>
-            <input type='text' class="form-control input-sm" placeholder='Tag' onChange={handleNewTag} required/>
-            <input type='submit' id='createPost' class="form-control input-sm" value='Create Post'/>
-          </form><br/>
-        </div>
-      </div>
-    </div>
+    
   </div>
     
 
@@ -338,7 +340,7 @@ function App() {
           <div id='projectTeam'>
           {/* ======== Contact Us - Modal Link ======= */}
           <hr/>
-          <a type="button" class="btn" data-toggle="modal" data-target="#contactUs">
+          <a type="button" id='links' class="btn" data-toggle="modal" data-target="#contactUs">
             <i class="bi bi-envelope"> Contact Us</i>
           </a>
           {/* ===========-Contact Us - Modal ========== */}
@@ -372,7 +374,7 @@ function App() {
             </div>
           </div>
           {/* ======== How to Use - Modal Link======= */}
-          <a type="button" class="btn" data-toggle="modal" data-target="#howToUse">
+          <a type="button" id='links' class="btn" data-toggle="modal" data-target="#howToUse">
           <i class="bi bi-question-circle"> How to Use</i>
           </a>
           {/* ========= How to Use - Modal ========== */}
@@ -396,7 +398,7 @@ function App() {
             </div>
           </div>
           {/* ========About Us - Modal Link======= */}
-          <a href type="button" class="btn" data-toggle="modal" data-target="#aboutUs">
+          <a href type="button" id='links' class="btn" data-toggle="modal" data-target="#aboutUs">
           <i class="bi bi-people-fill"> About Us</i>
           </a>
           {/* ========== About Us - Modal ======== */}
@@ -420,10 +422,10 @@ function App() {
             <br/>
             <hr/>
             <p id='projectTeam'>Project Team:
-              <a href='https://github.com/Lanny-MacMillan' target="_blank">
+              <a href='https://github.com/Lanny-MacMillan' id='links' target="_blank">
               <i class="bi bi-github"> Lanny</i></a>
 
-              <a href='https://github.com/kbrpronet' target="_blank">
+              <a href='https://github.com/kbrpronet' id='links' target="_blank">
               <i class="bi bi-github"> Kai</i></a>
               </p>
           </div>

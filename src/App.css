@@ -7,6 +7,10 @@ body {
   background-size: cover; 
   font-family: "Dosis", sans-serif;
   }
+
+  #links {
+    color: rgb(66, 64, 64)
+  }
 #tags {
   font-size: 18px;
   font-weight: bolder;
@@ -59,8 +63,8 @@ background-color: #4b4949;
   margin-bottom: 8px;
 }
 .modal-backdrop.in { z-index: auto;}
-#showComments {
 
+#showComments {
   background: rgba(247,188,119,1);
   border-radius: 35px;
 }
@@ -84,7 +88,7 @@ background-color: #4b4949;
   padding-top:10px;
   box-shadow: 3px 3px rgba(173,109,80);
   border: 1px solid  rgba(214,121,52);
- 
+  margin-right: 580px;
 }
 #post-div {
   text-align: center;
@@ -93,8 +97,10 @@ background-color: #4b4949;
   margin-right: 200px;
   /* opacity: .85; */
   border-radius: 35px;
-  
-  box-shadow: 5px 5px 5px 5px black;
+  border: 1px solid  rgba(214,121,52);
+
+  box-shadow: 3px 3px 3px 3px #b3795e;;
+  /* box-shadow: 5px 5px 5px 5px black; */
 
 }
 #logo {
@@ -125,10 +131,6 @@ background-color: #4b4949;
   border:1.5px solid #ad6d50;
   background-color: rgb(246,209,156);
   border-radius: 35px;
-}
-
-#showComments{
- 
 }
 
 ul {
@@ -234,10 +236,11 @@ body {
   background: #f6d19c;
   color: rgba(17,71,69, 0.71);
   cursor: pointer;
+  border:1px solid #ad6d50;
 }
 
 .joinChatContainer button:hover {
-  background: #2e7d32;
+  background: #b3795e;
 }
 
 .chat-window {
@@ -377,4 +380,38 @@ body {
 }
 .hide {
   opacity: 0 !important;
+}
+/* =========================================== */
+@media only screen and (min-device-width: 1200px) and (max-device-width: 1399px) {
+  #createDiv {
+    margin-right: 480px;
+  }
+}
+@media only screen and (min-device-width: 992px) and (max-device-width: 1199px) {
+  #createDiv {
+    margin-right: 400px;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 991px) {
+  #createDiv {
+    margin-right: 270px;
+  }
+}
+@media only screen and (min-device-width: 576px) and (max-device-width: 767px) {
+  #createDiv {
+    margin-right: 230px;
+    margin-left: 35px;
+  }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 575px) {
+  #createDiv {
+    margin-right: 230px;
+    margin-left: 35px;
+    /* width: 275px; */
+  }
+  #post-div {
+    margin-right: 230px;
+    /* width: 275px; */
+    margin-left: 35px;
+  }
 }
