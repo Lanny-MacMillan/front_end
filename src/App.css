@@ -2,6 +2,7 @@ body {
   text-align: center;
   background-color: #79bbc7;
   background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23bedae2' fill-opacity='0.97' fill-rule='evenodd'/%3E%3C/svg%3E");
+  /* background-position: center center; */
   background-attachment: fixed;
   background-size: cover; 
   font-family: "Dosis", sans-serif;
@@ -92,7 +93,9 @@ background-color: #4b4949;
   margin-right: 200px;
   /* opacity: .85; */
   border-radius: 35px;
-  box-shadow: 5px 5px 5px 5px rgb(28, 29, 48);
+  
+  box-shadow: 5px 5px 5px 5px black;
+
 }
 #logo {
   /* width: 100%; */
@@ -106,6 +109,27 @@ background-color: #4b4949;
   width: 100%;
   max-width: 450px;
 } */
+
+#commentButton, #editButton, #deleteButton {
+  color: #ad6d50;
+  font-weight: bold;
+  border:1.5px solid #ad6d50;
+  background-color: rgb(246,209,156);
+  margin-top: 15px;
+  border-radius: 35px;
+}
+
+#editSubmit{
+  color: #ad6d50;
+  font-weight: bold;
+  border:1.5px solid #ad6d50;
+  background-color: rgb(246,209,156);
+  border-radius: 35px;
+}
+
+#showComments{
+ 
+}
 
 ul {
   padding: 0;
@@ -182,6 +206,7 @@ body {
   display: flex;
   flex-direction: column;
   text-align: center;
+  padding: 5px;
 }
 
 .joinChatContainer h3 {
@@ -192,7 +217,7 @@ body {
   width: 190px;
   height: 25px;
   margin: 10px;
-  border: 2px solid #43a047;
+  border: 2px solid #f6d19c;
   border-radius: 5px;
   padding: 5px;
   font-size: .8em;;
@@ -206,8 +231,8 @@ body {
   border-radius: 5px;
   padding: 5px;
   font-size: 16px;
-  background: #43a047;
-  color: rgba(255, 255, 255, 0.71);
+  background: #f6d19c;
+  color: rgba(17,71,69, 0.71);
   cursor: pointer;
 }
 

@@ -6,7 +6,6 @@ import Chat from './components/Chat';
 import io from "socket.io-client";
 import Fuse from 'fuse.js';
 import { Switch } from 'antd';
-import Button from '@mui/material/Button';
 
 const socket = io.connect("http://localhost:3001");
 
@@ -325,7 +324,7 @@ function App() {
                 setRoom(event.target.value);
               }}
             />
-            <button onClick={joinRoom}>Join A Room</button>
+            <button class="joinBtn" onClick={joinRoom}>Join A Room</button>
           </div>
         ) : (
           <Chat socket={socket} username={username} room={room} />
@@ -336,6 +335,7 @@ function App() {
       <div id='info'>
           <div id='projectTeam'>
           {/* ======== Contact Us - Modal Link ======= */}
+          <hr/>
           <a type="button" class="btn" data-toggle="modal" data-target="#contactUs">
             <i class="bi bi-envelope"> Contact Us</i>
           </a>
@@ -416,14 +416,14 @@ function App() {
             </div>
           </div>
             <br/>
-
-            <p id='projectTeam'>Project Team:<hr/></p>
+            <hr/>
+            <p id='projectTeam'>Project Team:
               <a href='https://github.com/Lanny-MacMillan' target="_blank">
               <i class="bi bi-github"> Lanny</i></a>
 
               <a href='https://github.com/kbrpronet' target="_blank">
               <i class="bi bi-github"> Kai</i></a>
-
+              </p>
           </div>
         </div>
         <h8 class="tag" >© 2022 The Bottle App.</h8>
